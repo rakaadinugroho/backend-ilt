@@ -1,0 +1,22 @@
+type Province {
+  id: ID!
+  name: String!
+}
+
+type City {
+  id: ID!
+  provinceId: ID!
+  name: String!
+}
+
+type District {
+  id: ID!
+  cityId: ID!
+  name: String!
+}
+
+type Query {
+  provinces: [Province]
+  citiesByProvince(provinceId: ID!): [City]
+  districtsByCity(cityId: ID!): [District]
+}
